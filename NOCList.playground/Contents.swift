@@ -29,26 +29,53 @@ This message will self destruct in 5 seconds.
 */
 //: ## Step 1
 //: Create constants for each of the above agents and store all their information in a tuple.
-
+let Agent1 = (coverName: "Ethan Hunt", realName: "Tom Cruise", accessLevel: 8, compromised: false)
+let Agent2 = (coverName: "Jim Phelps", realName: "Jon Voight", accessLevel: 9, compromised: true)
+let Agent3 = (coverName: "Claire Phelps", realName: "Emmanuelle Beart", accessLevel: 5, compromised: false )
+let Agent4 = (coverName: "Eugene Kittridge", realName: "Henry Czerny", accessLevel: 10, compromised: true)
+let Agent5 = (coverName: "Franz Krieger", realName: "Jean Reno", accessLevel: 4, compromised: false)
+let Agent6 = (coverName: "Luther Stickell", realName: "Ving Rhames", accessLevel: 4, compromised: false)
+let Agent7 = (coverName: "Sarah Davies", realName: "Kristin Scott Thomas", accessLevel: 5, compromised: true)
+let Agent8 = (coverName: "Max RotGrab", realName: "Vanessa Redgrave", accessLevel: 4, compromised: false)
+let Agent9 = (coverName:"Hannah Williams", realName: "Ingeborga Dapkūnaitė", accessLevel: 5, compromised: true)
+let Agent10 = (coverName:"Jack Harmon", realName: "Emilio Estevez", accessLevel: 6, compromised: true)
+let Agent11 = (coverName: "Frank Barnes", realName: "Dale Dye", accessLevel: 9, compromised: false)
 
 
 //: ## Step 2
 //: Place the above constants inside an array. Declare this array as a constant as well.
+let agents = [Agent1, Agent2, Agent3, Agent4, Agent5, Agent6, Agent7, Agent8, Agent9, Agent10, Agent11]
 
 
-
-//: ## Step 3
-//: Create a function that calculates the total number of compromised agents. Inside the function, iterate over the array of agents to determine which ones are compromised. Return the total count.
-
+func comped (_agents: [Bool]) -> Int {
+var compromisedCount = 0
+for Agent in agents {
+    if compromised == true {
+        compromisedCount += 1
+    }
+    return
+        {
+        compromisedCount
+        }()
+    
+}
+}
 
 
 //: ## Step 4
 //: Call the above function to find the total number of compromised agents and then print a sentence that says "# agents have been compromised!" using string interpolation.
 
+print("\(compromisedCount) agents have been compromised!")
 
 
 //: ## Step 5
 //: Create a function called "findCleanAgents" that both prints the cover names of all uncompromised agents, as well as returns an array of agents that are uncompromised.
+func findCleanAgents (_agents) String) -> String {
+    if cleanAgent in agents {
+        
+    }
+    
+}
 
 
 

@@ -45,6 +45,7 @@ let frankBarnes = (coverName: "Frank Barnes", realName: "Dale Dye", accessLevel:
 //: ## Step 2
 //: Place the above constants inside an array. Declare this array as a constant as well.
 
+let agentsArray = [ethanHunt, jimPhelps, clairePhelps, eugene, franz, lutherStickell, sarahDavies, max, hannahWilliams, jackHermon, frankBarnes]
 
 
 //: ## Step 3

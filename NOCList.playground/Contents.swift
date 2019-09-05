@@ -44,12 +44,12 @@ let frankBarnes = (coverName: "Frank Barnes", realName: "Dale Dye", accessLevel:
 
 //: ## Step 2
 //: Place the above constants inside an array. Declare this array as a constant as well.
-
+let coverAgents = [ethanHunt, jimPhelps, clairePhelps, eugeneKittridge, franzKrieger, lutherStikell, sarahDavies, maxRotGrab, hannahWilliams, jackHarmon, frankBarnes]
 
 
 //: ## Step 3
 //: Create a function that calculates the total number of compromised agents. Inside the function, iterate over the array of agents to determine which ones are compromised. Return the total count.
-
+func 
 
 
 //: ## Step 4

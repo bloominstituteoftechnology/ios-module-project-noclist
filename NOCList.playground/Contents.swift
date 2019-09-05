@@ -32,6 +32,8 @@ This message will self destruct in 5 seconds.
 print("hello world")
 //I am going to show you this
 
+//sadklfjasl;kdjfl;kasdjf
+
 //: ## Step 2
 //: Place the above constants inside an array. Declare this array as a constant as well.
 

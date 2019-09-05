@@ -29,13 +29,20 @@ This message will self destruct in 5 seconds.
 */
 //: ## Step 1
 //: Create constants for each of the above agents and store all their information in a tuple.
-
-
+let liam = ("Ethan Hunt", realName : "Tom Cruise", accessLevel : 8, compromised : false)
+let andrew = ("Jim Phelps", realName : "Jon Voight", accessLevel : 9, compromised : true)
+let wiliam = ("Claire Phelps", realName : "Emmanuelle Beart", accessLevel : 5, compromised : false)
+let james = ("Eugene Kittridge", realName: "Henry Czerny", accessLevel: 10, compromised: true)
+let eliana = ("Franz Krieger", realName: "Jean Reno", accessLevel: 4, compromised: false)
+let selvin = ( "Luther Stickell", realName: "Ving Rhames", accessLevel: 4, compromised: false)
+let andy = ( "Sarah Davies", realName: "Kristin Scott Thomas", accessLevel: 5, compromised: true)
+let ana = ( "Max RotGrab", realName: "Vanessa Redgrave", accessLevel: 4, compromised: false)
+let mike = ( "Hannah Williams", realName: "Ingeborga Dapkūnaitė", accessLevel: 5, compromised: true)
+let jhon = ("Jack Harmon", realName: "Emilio Estevez", accessLevel: 6, compromised: true)
+let tom = ("Frank Barnes", realName: "Dale Dye", accessLevel: 9, compromised: false)
 
 //: ## Step 2
 //: Place the above constants inside an array. Declare this array as a constant as well.
-
-
 
 //: ## Step 3
 //: Create a function that calculates the total number of compromised agents. Inside the function, iterate over the array of agents to determine which ones are compromised. Return the total count.

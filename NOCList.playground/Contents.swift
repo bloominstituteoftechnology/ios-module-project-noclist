@@ -32,7 +32,14 @@ This message will self destruct in 5 seconds.
 let ethanHunt = (coverName: "Ethan Hunt", realName: "Tom Cruise", accessLevel: 8, compromised: false)
 let jimPhelps = (coverName: "JimPhelps", realName: "Jon Voigh", accessLevel: 9, compromised: true)
 let clairePhelps = (coverName: "ClairePhelps", realName: "Emmanuelle Bear", accessLevel: 5, compromised: false)
-
+let eugeneKittridge = (coverName: "Eugene Kittridge", relaName: "Henry Czerny", accessLevel: 10, compromised: true)
+let franzKrieger = (coverName: "Franz Krieger", realName: "Jean Reno", accessLevel: 4, compromised: false)
+let lutherStikell = (coverName: "Luther Stikkel", realName: "Ving Rhams", accessLevel: 4, Compromised: false)
+let sarahDavies = (coverName: "Sarah Davies", realName: "Kristin Scott Thomas", accessLevel: 5, compromised: true)
+let maxRotGrab = (coverName: "Max Rot Grab", realName: "Vanessa Redgrave", accessLevel: 4, compromised: false)
+let hannahWilliams = (coverName: "Hannah Williams", realName: "Ingeborga Dapkunaite", accessLevel: 5, compromised: true)
+let jackHarmon = (coverName: "Jack Harmon", realName: "Emilio Estevez", accessLevel: 6, compromised: true)
+let frankBarnes = (coverName: "Frank Barnes", realName: "Dale Dye", accessLevel: 9, Compromised: false)
 
 
 //: ## Step 2

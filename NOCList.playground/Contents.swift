@@ -57,32 +57,46 @@ func nocList() -> Int {
     }
     return number
 }
-var step3 = nocList()
-print(step3) 
+
 //: ## Step 4
 //: Call the above function to find the total number of compromised agents and then print a sentence that says "# agents have been compromised!" using string interpolation.
+var step4 = nocList()
 
-
+print("\(step4) agents have been compromised !")
 
 //: ## Step 5
 //: Create a function called "findCleanAgents" that both prints the cover names of all uncompromised agents, as well as returns an array of agents that are uncompromised.
-
-
+var uncompromised = [String]()
+func findCleanAgents() {
+    for agent in agents {
+        if agent.compromised == false {
+            uncompromised.append(agent.coverName)
+            print(agent.coverName)
+        }
+    }
+    print(uncompromised)
+}
 
 //: ## Step 6
 //: Call the above function to find the total number of clean agents and print a message that says "# clean agents out of # total agents." Use the total number of agents in the array from step 2 as the second number in the string.
-
-
+findCleanAgents()
+print("\(uncompromised.count) clean agents out of \(agents.count).")
 
 //: ## Step 7
 //: Create a function called "findHighRisk" that prints out the real names and access levels of agents with level 8 or higher. If one of these agents is also currently compromised, add `**WARNING** **COMPROMISED**` to the end of the string that includes their name and access level.
 //: - Example: `Jon Voight, level: 9 **WARNING** **COMPROMISED**`
 
-
+func findHighRisk() {
+    for agent in agents {
+        if agent.accessLevel > 7 && agent.compromised == true {
+            print("\(agent.realName), level: \(agent.accessLevel), **WARNING** **COMPROMISED**")
+        }
+    }
+}
 
 //: ## Step 8
 //: Call the above function and check the output in the console to ensure it is functioning properly.
-
+findHighRisk()
 
 
 //: ## Step 9

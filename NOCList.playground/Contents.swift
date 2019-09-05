@@ -30,6 +30,7 @@ This message will self destruct in 5 seconds.
 //: ## Step 1
 //: Create constants for each of the above agents and store all their information in a tuple.
 print("hello world")
+//I am going to show you this
 
 //: ## Step 2
 //: Place the above constants inside an array. Declare this array as a constant as well.

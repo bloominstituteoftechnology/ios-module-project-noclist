@@ -44,7 +44,7 @@ let agent11 = (coverName: "Frank Barnes", realName: "Dale Dye", accessLevel: 9, 
 //: ## Step 2
 //: Place the above constants inside an array. Declare this array as a constant as well.
 
-
+let agents = [agent1, agent2, agent3, agent4, agent5, agent6, agent7, agent8, agent9, agent10, agent11]
 
 //: ## Step 3
 //: Create a function that calculates the total number of compromised agents. Inside the function, iterate over the array of agents to determine which ones are compromised. Return the total count.

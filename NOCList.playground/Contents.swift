@@ -29,6 +29,9 @@ This message will self destruct in 5 seconds.
 */
 //: ## Step 1
 //: Create constants for each of the above agents and store all their information in a tuple.
+let ethanHunt = (coverName: "Ethan Hunt", realName: "Tom Cruise", accessLevel: 8, compromised: false)
+let jimPhelps = (coverName: "JimPhelps", realName: "Jon Voigh", accessLevel: 9, compromised: true)
+let clairePhelps = (coverName: "ClairePhelps", realName: "Emmanuelle Bear", accessLevel: 5, compromised: false)
 
 
 

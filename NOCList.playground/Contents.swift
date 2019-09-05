@@ -1,14 +1,14 @@
 /*:
-# Module Project - NOC List
-
-Greetings agent. Your mission is a top priority for the agency. Please read below for further info.
-
-Our undercover agents in Eastern Europe are in trouble. The NOC list (Non-official cover) has been leaked and we need our directors to have quick access to the information so we can try to mitigate the damage. Some of the agents on the list have an access level that makes them privy to very sensitive information. We need an application that will present the NOC list's information in a quickly digestible format. Our top agents have been working on it, but we need this done ASAP and you've proven yourself to be quite capable of a quick turnaround.
-
-The Director herself has given you access to all the agency's resources to complete this mission. We're counting on you agent.
-
-Here is the complete NOC List. This information is classified at the highest levels, so guard it very carefully.
-
+ # Module Project - NOC List
+ 
+ Greetings agent. Your mission is a top priority for the agency. Please read below for further info.
+ 
+ Our undercover agents in Eastern Europe are in trouble. The NOC list (Non-official cover) has been leaked and we need our directors to have quick access to the information so we can try to mitigate the damage. Some of the agents on the list have an access level that makes them privy to very sensitive information. We need an application that will present the NOC list's information in a quickly digestible format. Our top agents have been working on it, but we need this done ASAP and you've proven yourself to be quite capable of a quick turnaround.
+ 
+ The Director herself has given you access to all the agency's resources to complete this mission. We're counting on you agent.
+ 
+ Here is the complete NOC List. This information is classified at the highest levels, so guard it very carefully.
+ 
  ---
  
  * coverName: "Ethan Hunt", realName: "Tom Cruise", accessLevel: 8, compromised: false
@@ -24,43 +24,60 @@ Here is the complete NOC List. This information is classified at the highest lev
  * coverName: "Frank Barnes", realName: "Dale Dye", accessLevel: 9, compromised: false
  
  ---
-
-This message will self destruct in 5 seconds.
-*/
+ 
+ This message will self destruct in 5 seconds.
+ */
 //: ## Step 1
 //: Create constants for each of the above agents and store all their information in a tuple.
 let Agent1 = (coverName: "Ethan Hunt", realName: "Tom Cruise", accessLevel: 8, compromised: false)
-
-
+let Agent2 = (coverName: "Ethan Hunt", realName: "Tom Cruise", accessLevel: 8, compromised: true)
+let Agent3 = (coverName: "Ethan Hunt", realName: "Tom Cruise", accessLevel: 8, compromised: false)
+let Agent4 = (coverName: "Ethan Hunt", realName: "Tom Cruise", accessLevel: 8, compromised: true)
 //: ## Step 2
 //: Place the above constants inside an array. Declare this array as a constant as well.
-
+let agents = [Agent1, Agent2, Agent3, Agent4]
 
 
 //: ## Step 3
 //: Create a function that calculates the total number of compromised agents. Inside the function, iterate over the array of agents to determine which ones are compromised. Return the total count.
+func compAgents() -> Int {
+    
+    var compromisedAgents: Int = 0
+    for agent in agents {
+        if agent.compromised == true {
+            compromisedAgents += 1
+        }
+    }
+    return compromisedAgents
+}
 
 
 
 //: ## Step 4
 //: Call the above function to find the total number of compromised agents and then print a sentence that says "# agents have been compromised!" using string interpolation.
-
+print("\(compAgents()) agents have been compromised!")
 
 
 //: ## Step 5
 //: Create a function called "findCleanAgents" that both prints the cover names of all uncompromised agents, as well as returns an array of agents that are uncompromised.
+func findCleanAgents() -> [Any] {
+    var cleanAgents = [Any]()
+    for agent in agents {
+        if agent.compromised == false {
+            print(agent)
+            cleanAgents.append(agent)
+        }
+    }
+    return cleanAgents
+}
 
-
-
-//: ## Step 6
-//: Call the above function to find the total number of clean agents and print a message that says "# clean agents out of # total agents." Use the total number of agents in the array from step 2 as the second number in the string.
-
+findCleanAgents()
 
 
 //: ## Step 7
 //: Create a function called "findHighRisk" that prints out the real names and access levels of agents with level 8 or higher. If one of these agents is also currently compromised, add `**WARNING** **COMPROMISED**` to the end of the string that includes their name and access level.
 //: - Example: `Jon Voight, level: 9 **WARNING** **COMPROMISED**`
-
+func find
 
 
 //: ## Step 8

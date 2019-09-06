@@ -30,12 +30,19 @@
 //: ## Step 1
 //: Create constants for each of the above agents and store all their information in a tuple.
 let Agent1 = (coverName: "Ethan Hunt", realName: "Tom Cruise", accessLevel: 8, compromised: false)
-let Agent2 = (coverName: "Ethan Hunt", realName: "Tom Cruise", accessLevel: 8, compromised: true)
-let Agent3 = (coverName: "Ethan Hunt", realName: "Tom Cruise", accessLevel: 8, compromised: false)
-let Agent4 = (coverName: "Ethan Hunt", realName: "Tom Cruise", accessLevel: 8, compromised: true)
+let Agent2 = (coverName: "Jim Phelps", realName: "Jon Voight", accessLevel: 9, compromised: true)
+let Agent3 = (coverName: "Claire Phelps", realName: "Emmanuelle Beart", accessLevel: 5, compromised: false)
+let Agent4 = (coverName: "Eugene Kittridge", realName: "Henry Czerny", accessLevel: 10, compromised: true)
+let Agent5 = (coverName: "Franz Krieger", realName: "Jean Reno", accessLevel: 4, compromised: false)
+let Agent6 = (coverName: "Luther Stickell", realName: "Ving Rhames", accessLevel: 4, compromised: false)
+let Agent7 = (coverName: "Sarah Davies", realName: "Kristin Scott Thomas", accessLevel: 5, compromised: true)
+let Agent8 = (coverName: "Max RotGrab", realName: "Vanessa Redgrave", accessLevel: 4, compromised: false)
+let Agent9 = (coverName: "Hannah Williams", realName: "Ingeborga Dapkūnaitė", accessLevel: 5, compromised: true)
+let Agent10 = (coverName: "Jack Harmon", realName: "Emilio Estevez", accessLevel: 6, compromised: true)
+let Agent11 = (coverName: "Frank Barnes", realName: "Dale Dye", accessLevel: 9, compromised: false)
 //: ## Step 2
 //: Place the above constants inside an array. Declare this array as a constant as well.
-let agents = [Agent1, Agent2, Agent3, Agent4]
+let agents = [Agent1, Agent2, Agent3, Agent4, Agent5, Agent6, Agent7, Agent8, Agent9, Agent10, Agent11]
 
 
 //: ## Step 3
@@ -51,11 +58,12 @@ func compAgents() -> Int {
     return compromisedAgents
 }
 
+//compAgents()
 
 
 //: ## Step 4
 //: Call the above function to find the total number of compromised agents and then print a sentence that says "# agents have been compromised!" using string interpolation.
-print("\(compAgents()) agents have been compromised!")
+//print("\(compAgents()) agents have been compromised!")
 
 
 //: ## Step 5
@@ -64,38 +72,67 @@ func findCleanAgents() -> [Any] {
     var cleanAgents = [Any]()
     for agent in agents {
         if agent.compromised == false {
-            print(agent)
+            print(agent.coverName)
             cleanAgents.append(agent)
         }
     }
     return cleanAgents
 }
 
-findCleanAgents()
+//findCleanAgents()
 
 
 //: ## Step 7
 //: Create a function called "findHighRisk" that prints out the real names and access levels of agents with level 8 or higher. If one of these agents is also currently compromised, add `**WARNING** **COMPROMISED**` to the end of the string that includes their name and access level.
 //: - Example: `Jon Voight, level: 9 **WARNING** **COMPROMISED**`
-func find
+func findHighRisk() {
+    for x in agents {
+        if x.accessLevel >= 8 && x.compromised == true {
+            print("\(x.realName), level: \(x.accessLevel) **WARNING** **COMPROMISED**")
+        }
+        if x.accessLevel >= 8 && x.compromised == false {
+            print("\(x.realName), level: \(x.accessLevel)")
+        }
+    }
+}
+
 
 
 //: ## Step 8
 //: Call the above function and check the output in the console to ensure it is functioning properly.
-
+findHighRisk()
 
 
 //: ## Step 9
 //: Create a function that finds totals for low, mid, and high level agents. Low level agents are 4 or lower, mid are 5-7, and high level agents are 8 or above. Iterate over each agent and use a `switch` statement to determine their level group. At the end of the function, print a statement like the following: "# low level agents, # mid level agents, and # high level agents"
-
+func sortAgentsByLevel() {
+    var lowAgents = 0
+    var midAgents = 0
+    var highAgents = 0
+    
+    for x in agents {
+        switch x.accessLevel {
+        case 1...4:
+           lowAgents += 1
+        case 5...7:
+            midAgents += 1
+        default:
+            highAgents += 1
+        }
+    }
+    print("\(lowAgents) low level agents, \(midAgents) mid level agents, \(highAgents) high level agents")
+}
 
 
 //: ## Step 10
 //: Call the above function and check its output in the console.
-
+sortAgentsByLevel()
 
 
 //: ## Step 11 (Optional)
 //: Create and call a function that prints the cover names and access levels of all agents, but the list should be sorted by access level, in ascending order.
-
+func sortAgents() {
+    
+    
+}
 

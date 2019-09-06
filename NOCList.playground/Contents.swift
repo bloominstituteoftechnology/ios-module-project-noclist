@@ -51,19 +51,7 @@ let agetsArray = [coverNameEthanHunt,coverNameJimPhelps,coverNameClairePhelps,co
 
 //: ## Step 3
 //: Create a function that calculates the total number of compromised agents. Inside the function, iterate over the array of agents to determine which ones are compromised. Return the total count.
-let coverNameEthanHunt = (realName: "Tom Cruise", accessLevel: 8, compromised: false)
-let coverNameJimPhelps = (realName: "Jon Voight", accessLevel: 9, compromised: true)
-let coverNameClairePhelps = (realName: "Emmanuelle Beart", accessLevel: 5, compromised: false)
-let coverNameEugeneKittridge = (realName: "Henry Czerny", accessLevel: 10, compromised: true)
-let coverNameFranzKrieger = (realName: "Jean Reno", accessLevel: 4, compromised: false)
-let coverNameLutherStickell = (realName: "Ving Rhames", accessLevel: 4, compromised: false)
-let coverNameSarahDavies = (realName: "Kristin Scott Thomas", accessLevel: 5, compromised: true)
-let coverNameMaxRotGrab = (realName: "Vanessa Redgrave", accessLevel: 4, compromised: false)
-let coverNameHannahWilliams = (realName: "Ingeborga Dapkūnaitė", accessLevel: 5, compromised: true)
-let coverNameJackHarmon = (realName: "Emilio Estevez", accessLevel: 6, compromised: true)
-var coverNameFrankBarnes = (realName: "Dale Dye", accessLevel: 9, compromised: false)
 
-let agetsArray = [coverNameEthanHunt,coverNameJimPhelps,coverNameClairePhelps,coverNameEugeneKittridge,coverNameFranzKrieger,coverNameLutherStickell,coverNameSarahDavies,coverNameMaxRotGrab,coverNameHannahWilliams,coverNameJackHarmon,coverNameFrankBarnes]
 
 func number(){
     print(agetsArray.count)
@@ -98,7 +86,7 @@ func compromisedAgents() -> Int {
             
         }
         return compromisedCount
-    }
+    }}
     print("\(compromisedAgents()) agents were comprimised")
     
     
@@ -120,32 +108,65 @@ func compromisedAgents() -> Int {
 
 //: ## Step 6
 //: Call the above function to find the total number of clean agents and print a message that says "# clean agents out of # total agents." Use the total number of agents in the array from step 2 as the second number in the string.
-
+print("\(notComprimised()) clean agents out of \(agetsArray.count) total agents.")
 
 
 //: ## Step 7
 //: Create a function called "findHighRisk" that prints out the real names and access levels of agents with level 8 or higher. If one of these agents is also currently compromised, add `**WARNING** **COMPROMISED**` to the end of the string that includes their name and access level.
 //: - Example: `Jon Voight, level: 9 **WARNING** **COMPROMISED**`
-
+func findHighRisk() {
+    
+    for agent in agetsArray {
+        let level = agent.accessLevel
+        if level >= 8 {
+            print("\(agent.realName), level \(level)\(agent.compromised ? "**WARNING** **COMPROMISED**" : "")")
+            
+        }
+        
+    }
+    
+}
 
 
 //: ## Step 8
 //: Call the above function and check the output in the console to ensure it is functioning properly.
-
+findHighRisk()
 
 
 //: ## Step 9
 //: Create a function that finds totals for low, mid, and high level agents. Low level agents are 4 or lower, mid are 5-7, and high level agents are 8 or above. Iterate over each agent and use a `switch` statement to determine their level group. At the end of the function, print a statement like the following: "# low level agents, # mid level agents, and # high level agents"
-
+func findAgentsLevels() {
+    var low = 0
+    var mid = 0
+    var high = 0
+    
+    for level in agetsArray {
+        
+        
+        switch level.accessLevel {
+        case 0...4:
+            low += 1
+            
+        case 5...7:
+            mid += 1
+            
+        case 8...10:
+            high += 1
+            
+        default:
+            continue
+        }
+    }
+    
+    print("\(low) Low level agents, \(mid) Mid level agents, and \(high) High level agents.")
+}
 
 
 //: ## Step 10
 //: Call the above function and check its output in the console.
-
+findAgentsLevels()
 
 
 //: ## Step 11 (Optional)
 //: Create and call a function that prints the cover names and access levels of all agents, but the list should be sorted by access level, in ascending order.
-
-
 

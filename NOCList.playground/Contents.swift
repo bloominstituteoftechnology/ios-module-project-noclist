@@ -29,22 +29,34 @@ This message will self destruct in 5 seconds.
 */
 //: ## Step 1
 //: Create constants for each of the above agents and store all their information in a tuple.
-
+let ethen = (coverName: "Ethan Hunt", realName: "Tom Cruise", accessLevel: 8, compromised: false)
+let jim = (coverName: "Jim Phelps", realName: "Jon Voight", accessLevel: 9, compromised: true)
+let luther = (coverName: "Luther Stickell", realName: "Ving Rhames", accessLevel: 4, compromised: false)
 
 
 //: ## Step 2
 //: Place the above constants inside an array. Declare this array as a constant as well.
-
+let agents = [ethen, jim, luther]
 
 
 //: ## Step 3
 //: Create a function that calculates the total number of compromised agents. Inside the function, iterate over the array of agents to determine which ones are compromised. Return the total count.
-
+func compromisedAgents() -> Int {
+    var count: Int = 0
+    for agent in agents {
+        if agent.compromised == true {
+            count += 1
+        }
+    }
+    
+    return count
+}
+compromisedAgents()
 
 
 //: ## Step 4
 //: Call the above function to find the total number of compromised agents and then print a sentence that says "# agents have been compromised!" using string interpolation.
-
+print("\(compromisedAgents()) agents compromised!")
 
 
 //: ## Step 5

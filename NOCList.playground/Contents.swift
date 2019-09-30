@@ -144,9 +144,36 @@ agentGradeCount(agents: agents)
 //: ## Step 11 (Optional)
 //: Create and call a function that prints the cover names and access levels of all agents, but the list should be sorted by access level, in ascending order.
 
+func sortByAccess(agents: [(coverName: String, realName: String, accessLevel: Int, compromised: Bool)]) -> [(coverName: String, realName: String, accessLevel: Int, compromised: Bool)] {
+    
+    var agentsToSort = agents
+    var sortedAgents: [(coverName: String, realName: String, accessLevel: Int, compromised: Bool)] = [agentsToSort.remove(at: 0)]
+    
+    for agent in agentsToSort {
+        var insertionIndex = 0
+        for sortedAgent in sortedAgents {
+            if agent.accessLevel < sortedAgent.accessLevel {
+                
+                sortedAgents.insert(agent, at: insertionIndex)
+                break
+            } else {
+                
+                insertionIndex += 1
+                
+                if insertionIndex >= sortedAgents.count {
+                sortedAgents.append(agent)
+                }
+            }
+        }
+    }
+    return sortedAgents
+}
+
 func printAgentsByAccess(agents: [(coverName: String, realName: String, accessLevel: Int, compromised: Bool)]) {
     
-    let sortedAgents = agents.sorted { $0.accessLevel < $1.accessLevel }
+    let sortedAgents = sortByAccess(agents: agents)
+    
+//    let sortedAgents = agents.sorted { $0.accessLevel < $1.accessLevel }
     for agent in sortedAgents {
         print("\(agent.coverName)-\(agent.accessLevel)")
     }

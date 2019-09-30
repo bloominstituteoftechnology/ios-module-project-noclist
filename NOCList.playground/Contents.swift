@@ -158,3 +158,60 @@ func agentsSortedByAccess() {
 }
 
 agentsSortedByAccess()
+
+//: --------
+//: ## Additional Fun
+//: Just for fun/practice I decided to re-implement some stuff in a way that might be a tad better in some ways, especially for step 5 and in function constructors.
+
+print("\n---------\n[[stuff below is additional stuff just for fun and practice]]\n---------")
+
+struct Agent {
+    let coverName: String
+    let realName: String
+    let accessLevel: UInt8
+    let compromised: Bool
+}
+
+let ethan2 = Agent(coverName: "Ethan Hunt", realName: "Tom Cruise", accessLevel: 8, compromised: false)
+let jim2 = Agent(coverName: "Jim Phelps", realName: "Jon Voight", accessLevel: 9, compromised: true)
+let claire2 = Agent(coverName: "Claire Phelps", realName: "Emmanuelle Beart", accessLevel: 5, compromised: false)
+let eugene2 = Agent(coverName: "Eugene Kittridge", realName: "Henry Czerny", accessLevel: 10, compromised: true)
+let franz2 = Agent(coverName: "Franz Krieger", realName: "Jean Reno", accessLevel: 4, compromised: false)
+let luther2 = Agent(coverName: "Luther Stickell", realName: "Ving Rhames", accessLevel: 4, compromised: false)
+let sarah2 = Agent(coverName: "Sarah Davies", realName: "Kristin Scott Thomas", accessLevel: 5, compromised: true)
+let max2 = Agent(coverName: "Max RotGrab", realName: "Vanessa Redgrave", accessLevel: 4, compromised: false)
+let hannah2 = Agent(coverName: "Hannah Williams", realName: "Ingeborga Dapkūnaitė", accessLevel: 5, compromised: true)
+let jack2 = Agent(coverName: "Jack Harmon", realName: "Emilio Estevez", accessLevel: 6, compromised: true)
+let frank2 = Agent(coverName: "Frank Barnes", realName: "Dale Dye", accessLevel: 9, compromised: false)
+
+let agents2 = [ethan2, jim2, claire2, eugene2, franz2, luther2, sarah2, max2, hannah2, jack2, frank2]
+
+func totalCompromisedAgents2(_ agentList: [Agent]) -> Int {
+    var numCompromisedAgents = 0
+    
+    for agent in agentList {
+        if agent.compromised {
+            numCompromisedAgents += 1
+        }
+    }
+    
+    return numCompromisedAgents
+}
+
+print("\(totalCompromisedAgents2(agents2)) agents have been compromised!")
+
+func findCleanAgents2(_ agentList: [Agent]) -> [Agent] {
+    var cleanAgents = [Agent]()
+    
+    for agent in agentList {
+        if !agent.compromised {
+            cleanAgents.append(agent)
+            print(agent.coverName)
+        }
+    }
+    
+    return cleanAgents
+}
+
+let cleanAgents2 = findCleanAgents2(agents2)
+print("\(cleanAgents2.count) clean agents out of \(agents2.count) total agents.")

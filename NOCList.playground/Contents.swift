@@ -67,8 +67,8 @@ print("\(compromisedCount()) agents have been compromised")
 //: Create a function called "findCleanAgents" that both prints the cover names of all uncompromised agents, as well as returns an array of agents that are uncompromised.
     func findCleanAgents() -> Int {
         var totalCount = 0
-        for agent in agents {
-            if agent.compromised == false {
+        for anAgent in agents {
+            if anAgent.compromised == false {
                 totalCount += 1
             }
             
@@ -85,33 +85,55 @@ print("\(findCleanAgents()) clean agents out of \(agents.count) agents")
 //: ## Step 7
 //: Create a function called "findHighRisk" that prints out the real names and access levels of agents with level 8 or higher. If one of these agents is also currently compromised, add `**WARNING** **COMPROMISED**` to the end of the string that includes their name and access level.
 //: - Example: `Jon Voight, level: 9 **WARNING** **COMPROMISED**`
-    func findHighRisk() -> String {
-        var highRiskAgentsffsdfsdfasdf  = []
+    func findHighRisk() {
         for agent in agents {
-            if agent.accessLevel > 8 {
-               
-            }
-}
-        
+            if agent.accessLevel > 8 &&
+            agent.compromised == false {
+                 print("\(agent.realName), \(agent.accessLevel) ")
+            
+            } else if agent.accessLevel > 8 &&
+                agent.compromised == true {
+                print("\(agent.realName), \(agent.accessLevel) **Warning**,  **Compromised**")
+        }
 }
 
+}
 
 //: ## Step 8
 //: Call the above function and check the output in the console to ensure it is functioning properly.
 
-
+findHighRisk()
 
 //: ## Step 9
 //: Create a function that finds totals for low, mid, and high level agents. Low level agents are 4 or lower, mid are 5-7, and high level agents are 8 or above. Iterate over each agent and use a `switch` statement to determine their level group. At the end of the function, print a statement like the following: "# low level agents, # mid level agents, and # high level agents"
-
+func findAgentLevelTotals() {
+    var lowLevelAgents = 0
+    var midLevelAgents = 0
+    var highLevelAgents = 0
+    for agent in agents {
+        switch agent.accessLevel {
+        case 1...4:
+            lowLevelAgents += 1
+        case 5...7:
+            midLevelAgents += 1
+        case 8...10:
+            highLevelAgents += 1
+            
+            
+        default:
+            print("Default")}
+    
+}
+  print("\(lowLevelAgents) low-level agents, \(midLevelAgents) mid-level agents, \(highLevelAgents) high-level agents")  }
 
 
 //: ## Step 10
 //: Call the above function and check its output in the console.
 
-
+findAgentLevelTotals()
 
 //: ## Step 11 (Optional)
 //: Create and call a function that prints the cover names and access levels of all agents, but the list should be sorted by access level, in ascending order.
+
 
 

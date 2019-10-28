@@ -72,7 +72,6 @@ func findCleanAgents() -> [String] {
     }
     return arrayOfCleanAgents
 }
-
 //: ## Step 6
 //: Call the above function to find the total number of clean agents and print a message that says "# clean agents out of # total agents." Use the total number of agents in the array from step 2 as the second number in the string.
 findCleanAgents()
@@ -94,15 +93,39 @@ func findHighRisk() {
 findHighRisk()
 //: ## Step 9
 //: Create a function that finds totals for low, mid, and high level agents. Low level agents are 4 or lower, mid are 5-7, and high level agents are 8 or above. Iterate over each agent and use a `switch` statement to determine their level group. At the end of the function, print a statement like the following: "# low level agents, # mid level agents, and # high level agents"
-
-
-
+func totals() {
+    var lowLevel = 0
+    var midLevel = 0
+    var highLevel = 0
+    
+    for agent in agents {
+        switch agent.accessLevel {
+        case 1...4:
+            lowLevel += 1
+        case 5...7:
+            midLevel += 1
+        case 8...:
+            highLevel += 1
+        default: break
+        }
+    }
+    print("\(lowLevel) low level agents, \(midLevel) mid level agents, and \(highLevel) high level agents.")
+}
 //: ## Step 10
 //: Call the above function and check its output in the console.
-
-
-
+totals()
 //: ## Step 11 (Optional)
 //: Create and call a function that prints the cover names and access levels of all agents, but the list should be sorted by access level, in ascending order.
+func sortAgents() {
+    let x = agents.sorted { a,b in
+        if a.accessLevel == b.accessLevel {
+            return a.coverName < b.coverName
+        }
+        return a.accessLevel < b.accessLevel
+    }
+    for agent in x {
+        print("\(agent.coverName), level \(agent.accessLevel)")
+    }
+}
 
-
+sortAgents()

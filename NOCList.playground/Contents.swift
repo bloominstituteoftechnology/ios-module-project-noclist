@@ -117,28 +117,26 @@ func findRiskDistribution(in listOfAgents: [Agent]) {
 findRiskDistribution(in: NOCList)
 //: ## Step 11 (Optional)
 //: Create and call a function that prints the cover names and access levels of all agents, but the list should be sorted by access level, in ascending order.
-/*
 func printListSortedByAccessLevel(_ listOfAgents: [Agent]) {
-    var agentsNotYetPrinted = listOfAgents
+    var agents = listOfAgents
     
-    while(!agentsNotYetPrinted.isEmpty) {
+    //Each iteration of the while loop finds, removes and prints the agent with the lowest access level
+    while !agents.isEmpty {
+        var minAccessLevel = agents[0].accessLevel
         var indexOfMinAccessLevel = 0
         
+        //Finds the index of the agent with the lowest access level
+        for index in agents.indices {
+            if agents[index].accessLevel < minAccessLevel {
+                minAccessLevel = agents[index].accessLevel
+                indexOfMinAccessLevel = index
+            }
+        }
         
-    }
-    
-    
-    var sortedList: [Agent] = []
-    sortedList =
-    if let agent = listOfAgents.removeFirst() {
-        sortedList.append(agent)
-    }
-    
-    for agent in listOfAgents where !agent.compromised {
-        print(agent.coverName)
-        sortedList.append(agent)
+        //Removes the selected agent from the array and prints its details
+        let agent = agents.remove(at: indexOfMinAccessLevel)
+        print("\(agent.coverName), level: \(agent.accessLevel)")
     }
 }
 
 printListSortedByAccessLevel(NOCList)
-*/

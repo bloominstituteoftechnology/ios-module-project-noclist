@@ -29,56 +29,116 @@ This message will self destruct in 5 seconds.
 */
 //: ## Step 1
 //: Create constants for each of the above agents and store all their information in a tuple.
-
-//test change
-
+let agent1 = (coverName: "Ethan Hunt", realName: "Tom Cruise", accessLevel: 8, compromised: false)
+let agent2 = (coverName: "Jim Phelps", realName: "Jon Voight", accessLevel: 9, compromised: true)
+let agent3 = (coverName: "Claire Phelps", realName: "Emmanuelle Beart", accessLevel: 5, compromised: false)
+let agent4 = (coverName: "Eugene Kittridge", realName: "Henry Czerny", accessLevel: 10, compromised: true)
+let agent5 = (coverName: "Franz Krieger", realName: "Jean Reno", accessLevel: 4, compromised: false)
+let agent6 = (coverName: "Luther Stickell", realName: "Ving Rhames", accessLevel: 4, compromised: false)
+let agent7 = (coverName: "Sarah Davies", realName: "Kristin Scott Thomas", accessLevel: 5, compromised: true)
+let agent8 = (coverName: "Max RotGrab", realName: "Vanessa Redgrave", accessLevel: 4, compromised: false)
+let agent9 = (coverName: "Hannah Williams", realName: "Ingeborga Dapkūnaitė", accessLevel: 5, compromised: true)
+let agent10 = (coverName: "Jack Harmon", realName: "Emilio Estevez", accessLevel: 6, compromised: true)
+let agent11 = (coverName: "Frank Barnes", realName: "Dale Dye", accessLevel: 9, compromised: false)
 //: ## Step 2
 //: Place the above constants inside an array. Declare this array as a constant as well.
-
-
-
+let NOCList = [agent1, agent2, agent3, agent4, agent5, agent6, agent7, agent8, agent9, agent10, agent11]
 //: ## Step 3
 //: Create a function that calculates the total number of compromised agents. Inside the function, iterate over the array of agents to determine which ones are compromised. Return the total count.
+// Declares a new type named "Agent" to help make code more readable
+typealias Agent = (coverName: String, realName: String, accessLevel: Int, compromised: Bool)
 
-
-
+func countCompromisedAgents(in NOCList: [Agent]) -> Int {
+    var numAgentsCompromised = 0
+    for agent in NOCList where agent.compromised {
+        numAgentsCompromised += 1
+    }
+    return numAgentsCompromised
+}
 //: ## Step 4
 //: Call the above function to find the total number of compromised agents and then print a sentence that says "# agents have been compromised!" using string interpolation.
-
-
-
+let numberOfCompromisedAgents = countCompromisedAgents(in: NOCList)
+print("\(numberOfCompromisedAgents) agents have been compromised!")
 //: ## Step 5
 //: Create a function called "findCleanAgents" that both prints the cover names of all uncompromised agents, as well as returns an array of agents that are uncompromised.
-
-
-
+func findCleanAgents(in listOfAgents: [Agent]) -> [Agent] {
+    
+    var cleanAgents: [Agent] = []
+    for agent in listOfAgents where !agent.compromised {
+        print(agent.coverName)
+        cleanAgents.append(agent)
+    }
+    
+    return cleanAgents
+}
 //: ## Step 6
 //: Call the above function to find the total number of clean agents and print a message that says "# clean agents out of # total agents." Use the total number of agents in the array from step 2 as the second number in the string.
-
-
-
+let totalNumberOfAgents = NOCList.count
+let numberOfCleanAgents = findCleanAgents(in: NOCList).count
+print("\(numberOfCleanAgents) clean agents out of \(totalNumberOfAgents) total agents.")
 //: ## Step 7
 //: Create a function called "findHighRisk" that prints out the real names and access levels of agents with level 8 or higher. If one of these agents is also currently compromised, add `**WARNING** **COMPROMISED**` to the end of the string that includes their name and access level.
 //: - Example: `Jon Voight, level: 9 **WARNING** **COMPROMISED**`
-
-
-
+func findHighRisk(in listOfAgents: [Agent]) {
+    let warningMessage = " **WARNING** **COMPROMISED**"
+    for agent in listOfAgents where agent.accessLevel > 7 {
+        var highRiskAgentDetails = "\(agent.realName), level: \(agent.accessLevel)"
+        if agent.compromised {
+            highRiskAgentDetails += warningMessage
+        }
+        print(highRiskAgentDetails)
+    }
+}
 //: ## Step 8
 //: Call the above function and check the output in the console to ensure it is functioning properly.
-
-
-
+findHighRisk(in: NOCList)
 //: ## Step 9
 //: Create a function that finds totals for low, mid, and high level agents. Low level agents are 4 or lower, mid are 5-7, and high level agents are 8 or above. Iterate over each agent and use a `switch` statement to determine their level group. At the end of the function, print a statement like the following: "# low level agents, # mid level agents, and # high level agents"
+func findRiskDistribution(in listOfAgents: [Agent]) {
+    var numberOfLowLevelAgents = 0
+    var numberOfMidLevelAgents = 0
+    var numberOfHighLevelAgents = 0
 
-
-
+    for agent in listOfAgents {
+        
+        switch agent.accessLevel {
+        case ...4:
+            numberOfLowLevelAgents += 1
+        case 5...7:
+            numberOfMidLevelAgents += 1
+        default:
+            numberOfHighLevelAgents += 1
+        }
+    }
+    print("\(numberOfLowLevelAgents) low level agents, \(numberOfMidLevelAgents) mid level agents, and \(numberOfHighLevelAgents) high level agents")
+}
 //: ## Step 10
 //: Call the above function and check its output in the console.
-
-
-
+findRiskDistribution(in: NOCList)
 //: ## Step 11 (Optional)
 //: Create and call a function that prints the cover names and access levels of all agents, but the list should be sorted by access level, in ascending order.
+/*
+func printListSortedByAccessLevel(_ listOfAgents: [Agent]) {
+    var agentsNotYetPrinted = listOfAgents
+    
+    while(!agentsNotYetPrinted.isEmpty) {
+        var indexOfMinAccessLevel = 0
+        
+        
+    }
+    
+    
+    var sortedList: [Agent] = []
+    sortedList =
+    if let agent = listOfAgents.removeFirst() {
+        sortedList.append(agent)
+    }
+    
+    for agent in listOfAgents where !agent.compromised {
+        print(agent.coverName)
+        sortedList.append(agent)
+    }
+}
 
-
+printListSortedByAccessLevel(NOCList)
+*/

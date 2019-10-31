@@ -44,23 +44,45 @@ let frankBarnes = (coverName: "Frank Barnes", realName: "Dale Dye", accessLevel:
 
 //: ## Step 2
 //: Place the above constants inside an array. Declare this array as a constant as well.
-let coverAgents = [ethanHunt, jimPhelps, clairePhelps, eugeneKittridge, franzKrieger, lutherStikell, sarahDavies, maxRotGrab, hannahWilliams, jackHarmon, frankBarnes]
-
+let agent = [ethanHunt, jimPhelps, clairePhelps, eugeneKittridge, franzKrieger, lutherStikell, sarahDavies, maxRotGrab, hannahWilliams, jackHarmon, frankBarnes]
 
 //: ## Step 3
 //: Create a function that calculates the total number of compromised agents. Inside the function, iterate over the array of agents to determine which ones are compromised. Return the total count.
-func 
-
+func totalCount() -> Int {
+    var totalCount = 0
+    
+    for  compromisedAgents in agents {
+        if compromisedAgents.compromised {
+            totalCount += 1
+        }
+        
+    }
+    
+    
+    
+    
+   return totalCount
+}
 
 //: ## Step 4
 //: Call the above function to find the total number of compromised agents and then print a sentence that says "# agents have been compromised!" using string interpolation.
+print("\(totalCount()) have been compromised!")
 
 
 
 //: ## Step 5
 //: Create a function called "findCleanAgents" that both prints the cover names of all uncompromised agents, as well as returns an array of agents that are uncompromised.
+func findCleanAgents() -> [String] {
+    var cleanAgents: [String] = []
+    for uncompromisedAgents in agents {
+        if uncompromisedAgents == false {
+        print(uncompromisedAgents.coverName)
+        cleanAgents.append(uncompromisedAgents)
+    }
+    }
 
-
+return cleanAgents
+}
 
 //: ## Step 6
 //: Call the above function to find the total number of clean agents and print a message that says "# clean agents out of # total agents." Use the total number of agents in the array from step 2 as the second number in the string.

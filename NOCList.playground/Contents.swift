@@ -29,7 +29,7 @@ This message will self destruct in 5 seconds.
 */
 //: ## Step 1
 //: Create constants for each of the above agents and store all their information in a tuple.
-let ethanHunt = (covername: "Ethan Hunt", realName: "Tom Cruise", accesslevel: 8, compromised: false)
+let ethanHunt = (coverName: "Ethan Hunt", realName: "Tom Cruise", accessLevel: 8, compromised: false)
 let jimPhelps = (coverName: "Jim Phelps", realName: "Jon Voight", accessLevel: 9, compromised: true)
 let clairePhelps = (coverName: "Claire Phelps", realName: "Emmanuelle Beart", accessLevel: 5, compromised: false)
 let eugeneKittridge = (coverName: "Eugene Kittridge", realName: "Henry Czerny", accessLevel: 10, compromised: true)
@@ -62,7 +62,7 @@ print("\(compromised()) have been compromised!")
 //: ## Step 5
 //: Create a function called "findCleanAgents" that both prints the cover names of all uncompromised agents, as well as returns an array of agents that are uncompromised.
 func findCleanAgents() -> [Any]{
-    var cleanAgents = [Any] ()
+    let cleanAgents = [Any] ()
     for agents in agentsArray {
         if agents.compromised == false {
             print("\(agents.coverName)")
@@ -84,11 +84,11 @@ func findHighRisk() {
     for agents in agentsArray {
         if agents.accessLevel >= 8 && agents.compromised == false {
             print("\(agents.realName) is level \(agents.accessLevel)")
-        } else if agents.accessLevel >= 8
+        } else if agents.accessLevel >= 8 {
         print("\(agents.realName) is level \(agents.accessLevel) **WARNING** **COMPROMISED**")
     }
 }
-
+}
 
 //: ## Step 8
 //: Call the above function and check the output in the console to ensure it is functioning properly.
@@ -123,5 +123,4 @@ agentsLevel()
 
 //: ## Step 11 (Optional)
 //: Create and call a function that prints the cover names and access levels of all agents, but the list should be sorted by access level, in ascending order.
-
 

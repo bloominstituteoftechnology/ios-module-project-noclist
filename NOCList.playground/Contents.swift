@@ -82,27 +82,58 @@ func findCleanAgents() -> [String] {
 
 //: ## Step 6
 //: Call the above function to find the total number of clean agents and print a message that says "# clean agents out of # total agents." Use the total number of agents in the array from step 2 as the second number in the string.
-findCleanAgents()
-print("\(findCleanAgents().count) clean agents out of \(totalAgents.count) total agents.")
+let cleanCount = findCleanAgents().count
+let totalCount = totalAgents.count
+
+print("\(cleanCount) clean agents out of \(totalCount) total agents.")
+
+
+
+
+
+
 //: ## Step 7
 //: Create a function called "findHighRisk" that prints out the real names and access levels of agents with level 8 or higher. If one of these agents is also currently compromised, add `**WARNING** **COMPROMISED**` to the end of the string that includes their name and access level.
 //: - Example: `Jon Voight, level: 9 **WARNING** **COMPROMISED**`
-
-
-
+func findHighRisk() {
+for agent in totalAgents {
+    let level = agent.accessLevel
+    if level >= 8 {
+        print("\(agent.realName), level: \(level)\(agent.compromised ? " **WARNING** **COMPROMISED**" : "")")
+     }
+}
+}
 //: ## Step 8
 //: Call the above function and check the output in the console to ensure it is functioning properly.
-
-
+findHighRisk()
 
 //: ## Step 9
 //: Create a function that finds totals for low, mid, and high level agents. Low level agents are 4 or lower, mid are 5-7, and high level agents are 8 or above. Iterate over each agent and use a `switch` statement to determine their level group. At the end of the function, print a statement like the following: "# low level agents, # mid level agents, and # high level agents"
 
+func findAgentLevels() {
+    var low = 0
+    var mid = 0
+    var high = 0
 
+     for agent in totalAgents {
+        switch agent.accessLevel {
+        case 0...4:
+            low += 1
+        case 5...7:
+            mid += 1
+        case 8...10:
+            high += 1
+        default:
+            continue
+        }
+    }
+
+print("\(low) low level agents, \(mid) mid level agents, and \(high) high level agents")
+}
 
 //: ## Step 10
 //: Call the above function and check its output in the console.
-
+findAgentLevels()
 
 
 //: ## Step 11 (Optional)

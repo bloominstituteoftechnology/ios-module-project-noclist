@@ -29,56 +29,89 @@ This message will self destruct in 5 seconds.
 */
 //: ## Step 1
 //: Create constants for each of the above agents and store all their information in a tuple.
-test
-
-
+let agent1 = (coverName: "Ethan Hunt", realName: "Tom Cruise", accessLevel: 8, compromised: false)
+let agent2 = (coverName: "Jim Phelps", realName: "Jon Voight", accessLevel: 9, compromised: true)
+let agent3 = (coverName: "Claire Phelps", realName: "Emmanuelle Beart", accessLevel: 5, compromised: false)
+let agent4 = (coverName: "Eugene Kittridge", realName: "Henry Czerny", accessLevel: 10, compromised: true)
+let agent5 = (coverName: "Franz Krieger", realName: "Jean Reno", accessLevel: 4, compromised: false)
+let agent6 = (coverName: "Luther Stickell", realName: "Ving Rhames", accessLevel: 4, compromised: false)
+let agent7 = (coverName: "Sarah Davies", realName: "Kristin Scott Thomas", accessLevel: 5, compromised: true)
+let agent8 = (coverName: "Max RotGrab", realName: "Vanessa Redgrave", accessLevel: 4, compromised: false)
+let agent9 = (coverName: "Hannah Williams", realName: "Ingeborga Dapkūnaitė", accessLevel: 5, compromised: true)
+let agent10 = (coverName: "Jack Harmon", realName: "Emilio Estevez", accessLevel: 6, compromised: true)
+let agent11 = (coverName: "Frank Barnes", realName: "Dale Dye", accessLevel: 9, compromised: false)
 //: ## Step 2
 //: Place the above constants inside an array. Declare this array as a constant as well.
-
-
-
+let agentList = [agent1, agent2, agent3, agent4, agent5, agent6, agent7, agent8, agent9, agent10, agent11];
 //: ## Step 3
 //: Create a function that calculates the total number of compromised agents. Inside the function, iterate over the array of agents to determine which ones are compromised. Return the total count.
-
-
-
+func compromisedAgentCount() -> Int {
+    var count = 0;
+    
+    agentList.forEach{
+        if $0.compromised{
+            count += 1;
+        }
+    }
+    return (count);
+}
 //: ## Step 4
 //: Call the above function to find the total number of compromised agents and then print a sentence that says "# agents have been compromised!" using string interpolation.
-
-
-
+print("\(compromisedAgentCount()) agents have been compromised!" );
 //: ## Step 5
 //: Create a function called "findCleanAgents" that both prints the cover names of all uncompromised agents, as well as returns an array of agents that are uncompromised.
-
-
-
+func findCleanAgents()-> [(coverName: String, realName: String, accessLevel: Int, compromised: Bool)]{
+    let uncompromisedAgents = agentList.filter{$0.compromised == false};
+    uncompromisedAgents.forEach{ print($0.coverName)};
+    return(uncompromisedAgents);
+}
 //: ## Step 6
 //: Call the above function to find the total number of clean agents and print a message that says "# clean agents out of # total agents." Use the total number of agents in the array from step 2 as the second number in the string.
-
-
-
+print("\(findCleanAgents().count) clean agents out of \(agentList.count) total agents.")
 //: ## Step 7
 //: Create a function called "findHighRisk" that prints out the real names and access levels of agents with level 8 or higher. If one of these agents is also currently compromised, add `**WARNING** **COMPROMISED**` to the end of the string that includes their name and access level.
 //: - Example: `Jon Voight, level: 9 **WARNING** **COMPROMISED**`
-
-
-
+func findHighRisk(){
+    agentList.filter{$0.accessLevel > 7}.forEach{
+        if ($0.compromised){
+            print("\($0.realName), level: \($0.accessLevel) **WARNING** **COMPROMISED**");
+        }
+        else{
+            print("\($0.realName), level: \($0.accessLevel)");
+        }
+    }
+}
 //: ## Step 8
 //: Call the above function and check the output in the console to ensure it is functioning properly.
-
-
-
+findHighRisk();
 //: ## Step 9
 //: Create a function that finds totals for low, mid, and high level agents. Low level agents are 4 or lower, mid are 5-7, and high level agents are 8 or above. Iterate over each agent and use a `switch` statement to determine their level group. At the end of the function, print a statement like the following: "# low level agents, # mid level agents, and # high level agents"
-
-
-
+func findTotalLowMidHighLevelAgents(){
+    var agentsByRisk:[[(coverName: String, realName: String, accessLevel: Int, compromised: Bool)]] = [[],[],[]];
+    
+    agentList.forEach{
+        switch $0.accessLevel{
+        case 1...4:
+            agentsByRisk[0].append($0);
+        case 5...7:
+            agentsByRisk[1].append($0);
+        case 8...10:
+            agentsByRisk[2].append($0);
+        default:
+            break;
+        };
+    };
+    print("\(agentsByRisk[0].count) low level agents, \(agentsByRisk[1].count) mid level agents, and \(agentsByRisk[2].count) high level agents");
+}
 //: ## Step 10
 //: Call the above function and check its output in the console.
-
-
-
+findTotalLowMidHighLevelAgents();
 //: ## Step 11 (Optional)
 //: Create and call a function that prints the cover names and access levels of all agents, but the list should be sorted by access level, in ascending order.
-
-
+func printSortedAgentListByAccessLevel(){
+    let sortedAgentList = agentList.sorted(by: {$0.accessLevel < $1.accessLevel})
+    sortedAgentList.forEach{
+      print("\($0.coverName), level: \($0.accessLevel)");
+    };
+}
+printSortedAgentListByAccessLevel();

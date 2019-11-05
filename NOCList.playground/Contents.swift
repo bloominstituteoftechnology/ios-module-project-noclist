@@ -45,53 +45,78 @@ let agentEleven = (coverName: "Frank Barnes", realName: "Dale Dye", accessLevel:
 //: Place the above constants inside an array. Declare this array as a constant as well.
 let agentList = [agentOne, agentTwo, agentThree, agentFour, agentFive, agentSix, agentSeven, agentEight, agentNine, agentTen, agentEleven]
 
+//print(agentList)
+//print(agentOne.accessLevel)
+//print(agentSix.realName)
+
+
 //: ## Step 3
 //: Create a function that calculates the total number of compromised agents. Inside the function, iterate over the array of agents to determine which ones are compromised. Return the total count.
-func compromisedList() -> Int {
-    var compromisedListCount = 0
-    for compromised in agentList(_ compromised) {
-        if compromised {
-            compromisedListCount += 1
-        }
-    }
+for compromised in agentList.compromised {
+    compromisedAgentCount += 1
 }
 
+func totalCompromisedCount() -> Int {
+    var compromisedCount = 0
+    for anAgent in agentList {
+        compromisedCount += anAgent.compromised
+    }
+}
 //: ## Step 4
 //: Call the above function to find the total number of compromised agents and then print a sentence that says "# agents have been compromised!" using string interpolation.
-compromisedList()
-
-
+totalCompromisedCount()
 //: ## Step 5
 //: Create a function called "findCleanAgents" that both prints the cover names of all uncompromised agents, as well as returns an array of agents that are uncompromised.
-func findCleanAgents {
-    
+func findCleanAgents() {
+    if agentList.compromised == true {
+        print(agentList.coverName)
+    }
+} else {
+    return
 }
 //: ## Step 6
 //: Call the above function to find the total number of clean agents and print a message that says "# clean agents out of # total agents." Use the total number of agents in the array from step 2 as the second number in the string.
 
 
-
+findCleanAgents()
 //: ## Step 7
 //: Create a function called "findHighRisk" that prints out the real names and access levels of agents with level 8 or higher. If one of these agents is also currently compromised, add `**WARNING** **COMPROMISED**` to the end of the string that includes their name and access level.
 //: - Example: `Jon Voight, level: 9 **WARNING** **COMPROMISED**`
-func findHighRisk {
-    
+func findHighRisk() {
+    if agentList.accessLevel >= 8 , agentList.compromised == true {
+         print("\(agentList.realName), level\(agentList.accessLevel) **WARNING** **COMPROMISED**")
+    } else if agentList.accessLevel >= 8, agentList.compromised =! true {
+        print("\(agentList.realName), level\(agentList.accessLevel)")
+    }
 }
 
 
 //: ## Step 8
 //: Call the above function and check the output in the console to ensure it is functioning properly.
-
-
+findHighRisk()
 
 //: ## Step 9
 //: Create a function that finds totals for low, mid, and high level agents. Low level agents are 4 or lower, mid are 5-7, and high level agents are 8 or above. Iterate over each agent and use a `switch` statement to determine their level group. At the end of the function, print a statement like the following: "# low level agents, # mid level agents, and # high level agents"
+let agentAccessRange = agentList.accessLevel
 
+func findAgentAccessRange() {
+    
+    switch agentAccessRange {
+    case 1...4:
+        let lowLevelAgents: [String] = []
+    case 5...7:
+        let midLevelAgents: [String] = []
+    case >=8:
+        let highLevelAgents: [String] = []
+    default:
+         break
+    }
 
+}
 
 //: ## Step 10
 //: Call the above function and check its output in the console.
-
+findAgentAccessRange()
 
 
 //: ## Step 11 (Optional)

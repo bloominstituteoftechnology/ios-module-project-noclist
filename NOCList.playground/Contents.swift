@@ -1,14 +1,14 @@
 /*:
-# Module Project - NOC List
-
-Greetings agent. Your mission is a top priority for the agency. Please read below for further info.
-
-Our undercover agents in Eastern Europe are in trouble. The NOC list (Non-official cover) has been leaked and we need our directors to have quick access to the information so we can try to mitigate the damage. Some of the agents on the list have an access level that makes them privy to very sensitive information. We need an application that will present the NOC list's information in a quickly digestible format. Our top agents have been working on it, but we need this done ASAP and you've proven yourself to be quite capable of a quick turnaround.
-
-The Director herself has given you access to all the agency's resources to complete this mission. We're counting on you agent.
-
-Here is the complete NOC List. This information is classified at the highest levels, so guard it very carefully.
-
+ # Module Project - NOC List
+ 
+ Greetings agent. Your mission is a top priority for the agency. Please read below for further info.
+ 
+ Our undercover agents in Eastern Europe are in trouble. The NOC list (Non-official cover) has been leaked and we need our directors to have quick access to the information so we can try to mitigate the damage. Some of the agents on the list have an access level that makes them privy to very sensitive information. We need an application that will present the NOC list's information in a quickly digestible format. Our top agents have been working on it, but we need this done ASAP and you've proven yourself to be quite capable of a quick turnaround.
+ 
+ The Director herself has given you access to all the agency's resources to complete this mission. We're counting on you agent.
+ 
+ Here is the complete NOC List. This information is classified at the highest levels, so guard it very carefully.
+ 
  ---
  
  * coverName: "Ethan Hunt", realName: "Tom Cruise", accessLevel: 8, compromised: false
@@ -24,9 +24,9 @@ Here is the complete NOC List. This information is classified at the highest lev
  * coverName: "Frank Barnes", realName: "Dale Dye", accessLevel: 9, compromised: false
  
  ---
-
-This message will self destruct in 5 seconds.
-*/
+ 
+ This message will self destruct in 5 seconds.
+ */
 //: ## Step 1
 //: Create constants for each of the above agents and store all their information in a tuple.
 let ethanHunt = (coverName: "Ethan Hunt", realName: "Tom Cruise", accessLevel: 8, compromised: false)
@@ -116,3 +116,13 @@ func findAgentLevel() {
 findAgentLevel()
 //: ## Step 11 (Optional)
 //: Create and call a function that prints the cover names and access levels of all agents, but the list should be sorted by access level, in ascending order.
+func agentsAccessLevel() {
+    
+    let sortedAgents = agents.sorted(by: { $0.accessLevel < $1.accessLevel })
+    
+    for agent in sortedAgents {
+        print("\(agent.coverName), level: \(agent.accessLevel)")
+    }
+}
+
+agentsAccessLevel()

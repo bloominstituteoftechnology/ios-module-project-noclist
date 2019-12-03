@@ -129,11 +129,12 @@ func level() -> Int {
 level()
 //: ## Step 11 (Optional)
 //: Create and call a function that prints the cover names and access levels of all agents, but the list should be sorted by access level, in ascending order.
-func sortedByLevel() {
+func sortedByLevel() -> [(coverName: String, realName: String, accessLevel: Int, compromised: Bool)] {
     
-    let sortedList = agentsList.sort(by: agentsList.first.accessLevel )
-
-    for agent in agentsList {
+    let sortedList = agentsList.sorted {
+        $0.accessLevel < $1.accessLevel
+    }
+    for agent in sortedList {
         
         switch agent.accessLevel {
             case 1:
@@ -159,7 +160,7 @@ func sortedByLevel() {
             default:
                 break
         }
-    }
+    }; return sortedList
 }
  
 sortedByLevel()

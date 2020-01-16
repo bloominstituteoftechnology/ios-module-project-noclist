@@ -55,7 +55,6 @@ func compromisedCounter() -> Int {
             counter += 1
         }
     }
-    
     return counter
 }
 

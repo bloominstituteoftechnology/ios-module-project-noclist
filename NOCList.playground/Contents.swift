@@ -88,7 +88,7 @@ findCleanAgents()
 
 //: ## Step 6
 //: Call the above function to find the total number of clean agents and print a message that says "# clean agents out of # total agents." Use the total number of agents in the array from step 2 as the second number in the string.
-
+print("\(findCleanAgents().count) clean agents our of \(agentsArray.count) total agents")
 
 
 //: ## Step 7

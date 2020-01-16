@@ -44,7 +44,7 @@ let frankBarnes = (coverName: "Frank Barnes", realName: "Dale Dye", accessLevel:
 
 //: ## Step 2
 //: Place the above constants inside an array. Declare this array as a constant as well.
-let agentArray = [ethanHunt, jimPhelps, clairePhelps, eugeneKittridge, franzKrieger, lutherStickell, sarahDavies, maxRotGrab, hannahWilliams, jackHarmon, frankBarnes]
+var agentArray = [ethanHunt, jimPhelps, clairePhelps, eugeneKittridge, franzKrieger, lutherStickell, sarahDavies, maxRotGrab, hannahWilliams, jackHarmon, frankBarnes]
 
 //: ## Step 3
 //: Create a function that calculates the total number of compromised agents. Inside the function, iterate over the array of agents to determine which ones are compromised. Return the total count.
@@ -138,4 +138,11 @@ agentTotal()
 //: ## Step 11 (Optional)
 //: Create and call a function that prints the cover names and access levels of all agents, but the list should be sorted by access level, in ascending order.
 
+func printSortedAgentInfo () {
+    let sortedAgentArray = agentArray.sorted(by: { $0.accessLevel < $1.accessLevel })
+    for agent in sortedAgentArray {
+        print("\(agent.coverName): level \(agent.accessLevel)")
+    }
+}
 
+printSortedAgentInfo()

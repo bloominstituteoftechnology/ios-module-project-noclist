@@ -91,9 +91,9 @@ print("\(countOfCleanAgents) clean agents out of \(totalAgentsCount) total agent
 func findHighRisk() {
     for agent in agentsList {
         if agent.accessLevel >= 8 && agent.compromised {
-            print(agent.realName, agent.accessLevel, "**WARNING** **COMPROMISED**")
+            print("Real name: \(agent.realName), Access Level: \(agent.accessLevel), **WARNING** **COMPROMISED**")
         } else if agent.accessLevel >= 8 && !agent.compromised {
-            print(agent.realName, agent.accessLevel)
+            print("Real name: \(agent.realName), Access Level: \(agent.accessLevel)")
         }
     }
 }
@@ -133,3 +133,22 @@ findAccessLevelRanges()
 
 //: ## Step 11 (Optional)
 //: Create and call a function that prints the cover names and access levels of all agents, but the list should be sorted by access level, in ascending order.
+func agentsInOrder() {
+    let orderedAgents = agentsList.sorted { (agent1, agent2) -> Bool in agent2.accessLevel > agent1.accessLevel }
+    
+    var _: [(coverName: String, realName: String, accessLevel: Int, compromised: Bool)] = []
+    for agent1 in agentsList {
+        for agent2 in agentsList {
+            if agent2.accessLevel > agent1.accessLevel {
+                
+            }
+        }
+    }
+    
+    for agent in orderedAgents {
+        print("Covername: \(agent.coverName), Access Level: \(agent.accessLevel)")
+    }
+}
+
+
+agentsInOrder()

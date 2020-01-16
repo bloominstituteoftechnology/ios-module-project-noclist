@@ -49,6 +49,18 @@ let agentsArray = [ethanHunt, jimPhelps, clairePhelps, eugene, franz, lutherStic
 
 //: ## Step 3
 //: Create a function that calculates the total number of compromised agents. Inside the function, iterate over the array of agents to determine which ones are compromised. Return the total count.
+func totalNumberOfCompromisedAgents() -> Int {
+    var compromisedCount = 0
+    for agent in agentsArray {
+        if agent.compromised {
+            compromisedCount += 1
+        }
+    }
+    
+    return compromisedCount
+}
+
+print(totalNumberOfCompromisedAgents())
 
 
 

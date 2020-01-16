@@ -94,7 +94,18 @@ print("\(findCleanAgents().count) clean agents our of \(agentsArray.count) total
 //: ## Step 7
 //: Create a function called "findHighRisk" that prints out the real names and access levels of agents with level 8 or higher. If one of these agents is also currently compromised, add `**WARNING** **COMPROMISED**` to the end of the string that includes their name and access level.
 //: - Example: `Jon Voight, level: 9 **WARNING** **COMPROMISED**`
-
+func findHighRisk() {
+    for agent in agentsArray {
+        if agent.accessLevel >= 8 {
+            switch agent.compromised {
+            case true:
+                print("\(agent.realName), \(agent.accessLevel) **WARNING** **COMPROMISED**")
+            case false:
+                print("\(agent.realName), \(agent.accessLevel)")
+            }
+        }
+    }
+}
 
 
 //: ## Step 8

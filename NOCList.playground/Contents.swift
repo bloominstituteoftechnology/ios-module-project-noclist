@@ -71,7 +71,19 @@ print("\(totalNumberOfCompromisedAgents()) agents have been compromised!")
 
 //: ## Step 5
 //: Create a function called "findCleanAgents" that both prints the cover names of all uncompromised agents, as well as returns an array of agents that are uncompromised.
+func findCleanAgents() -> [(coverName: String, realName: String, accessLevel: Int, compromised: Bool)] {
+    var uncompromisedAgents = [(coverName: String, realName: String, accessLevel: Int, compromised: Bool)]()
+    for agent in agentsArray {
+        if agent.compromised == false {
+        print(agent.coverName)
+            uncompromisedAgents.append(agent)
+        }
+    }
+    print(uncompromisedAgents.count)
+    return uncompromisedAgents
+}
 
+findCleanAgents()
 
 
 //: ## Step 6

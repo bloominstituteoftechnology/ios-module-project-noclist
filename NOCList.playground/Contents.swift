@@ -66,7 +66,7 @@ print(totalNumberOfCompromisedAgents())
 
 //: ## Step 4
 //: Call the above function to find the total number of compromised agents and then print a sentence that says "# agents have been compromised!" using string interpolation.
-
+print("\(totalNumberOfCompromisedAgents()) agents have been compromised!")
 
 
 //: ## Step 5

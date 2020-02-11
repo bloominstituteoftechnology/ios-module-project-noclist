@@ -123,5 +123,18 @@ agentLevels()
 
 //: ## Step 11 (Optional)
 //: Create and call a function that prints the cover names and access levels of all agents, but the list should be sorted by access level, in ascending order.
+//agentsSorted = nocListArray.sorted(by: .accessLevel)
 
+func agentsSorted() {
+    
+  let sortedNocList =  nocListArray.sorted {
+        $0.accessLevel < $1.accessLevel
+    }
+    
+    for agent in sortedNocList {
+        print("\(agent.coverName), access level \(agent.accessLevel)")
+  }
+}
+
+agentsSorted()
 

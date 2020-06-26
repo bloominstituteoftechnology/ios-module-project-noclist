@@ -45,7 +45,17 @@ let frankBarnes = (coverName: "Frank Barnes", realName: "Dale Dye", accessLevel:
 let agentList = [ethanHunt, jimPhelps, clairePhelps, eugeneKittridge, franzKrieger, lutherStickell, sarahDavies, maxRotGrab, hannahWilliams, jackHarmon, frankBarnes]
 //: ## Step 3
 //: Create a function that calculates the total number of compromised agents. Inside the function, iterate over the array of agents to determine which ones are compromised. Return the total count.
-
+func totalCompromisedAgents() -> Int {
+    var compromisedAgents = 0
+    
+    for agent in agentList {
+        if agent.compromised == true {
+            print(agent.coverName)
+            compromisedAgents += 1
+        }
+    }
+    return compromisedAgents
+}
 
 
 //: ## Step 4

@@ -45,8 +45,9 @@ let frankBarnes = (coverName: "Frank Barnes", realName: "Dale Dye", accessLevel:
 let agentList = [ethanHunt, jimPhelps, clairePhelps, eugeneKittridge, franzKrieger, lutherStickell, sarahDavies, maxRotGrab, hannahWilliams, jackHarmon, frankBarnes]
 //: ## Step 3
 //: Create a function that calculates the total number of compromised agents. Inside the function, iterate over the array of agents to determine which ones are compromised. Return the total count.
+var compromisedAgents = 0
 func totalCompromisedAgents() -> Int {
-    var compromisedAgents = 0
+    
     
     for agent in agentList {
         if agent.compromised == true {
@@ -60,9 +61,8 @@ func totalCompromisedAgents() -> Int {
 
 //: ## Step 4
 //: Call the above function to find the total number of compromised agents and then print a sentence that says "# agents have been compromised!" using string interpolation.
-
-
-
+totalCompromisedAgents()
+print("\(compromisedAgents) agents have been compromised")
 //: ## Step 5
 //: Create a function called "findCleanAgents" that both prints the cover names of all uncompromised agents, as well as returns an array of agents that are uncompromised.
 

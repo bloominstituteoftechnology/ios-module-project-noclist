@@ -51,6 +51,7 @@ let agentArray = [agent1, agent2, agent3, agent4, agent5, agent6, agent7, agent8
 //: ## Step 3
 //: Create a function that calculates the total number of compromised agents. Inside the function, iterate over the array of agents to determine which ones are compromised. Return the total count.
 var totalAgents = 0
+
 func totalCompromisedAgents() -> Int {
     
     for agent in agentArray {
@@ -69,7 +70,19 @@ print("\(totalAgents) agents have been compromised")
 
 //: ## Step 5
 //: Create a function called "findCleanAgents" that both prints the cover names of all uncompromised agents, as well as returns an array of agents that are uncompromised.
+var cleanAgents: [String] = []
 
+func findCleanAgents() -> [String] {
+    
+    for agent in agentArray {
+        if agent.compromised == false {
+            cleanAgents.append(agent.coverName)
+            print(agent.coverName)
+        }
+    }
+    
+    return cleanAgents
+}
 
 
 //: ## Step 6

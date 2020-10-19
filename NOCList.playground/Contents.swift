@@ -107,7 +107,7 @@ func findHighRisk() {
 
 //: ## Step 8
 //: Call the above function and check the output in the console to ensure it is functioning properly.
-
+findHighRisk()
 
 
 //: ## Step 9

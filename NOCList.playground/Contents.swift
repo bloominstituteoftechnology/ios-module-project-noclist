@@ -121,13 +121,10 @@ func agentLevels() {
         switch agent.accessLevel {
         case 1...4:
             lowAgents += 1
-            print("\(agent.coverName) is a level 4 or lower agent")
         case 5...7:
             midAgents += 1
-            print("\(agent.coverName) is a level 7 or lower agent")
         default:
             highAgents += 1
-            print("\(agent.coverName) is a level 8 or above agent")
         }
         print("\(lowAgents) low level agents")
         print("\(midAgents) mid level agents")
@@ -142,5 +139,14 @@ agentLevels()
 
 //: ## Step 11 (Optional)
 //: Create and call a function that prints the cover names and access levels of all agents, but the list should be sorted by access level, in ascending order.
+func sortedAgentAccessLevels() {
+    
+    let totalAgents = agentArray.sorted(by: {$0.accessLevel > $1.accessLevel})
+    
+    for agent in totalAgents {
+        print("Agent: \(agent.coverName) Access Level: \(agent.accessLevel)")
+    }
+}
 
+sortedAgentAccessLevels()
 

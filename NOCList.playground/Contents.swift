@@ -78,8 +78,8 @@ func findCleanAgents() -> Int {
 
 //: ## Step 6
 //: Call the above function to find the total number of clean agents and print a message that says "# clean agents out of # total agents." Use the total number of agents in the array from step 2 as the second number in the string.
-
-
+var totalCleanAgents = findCleanAgents()
+print("\(totalCleanAgents) clean agents out of \(agentArray.count) total agents")
 //: ## Step 7
 //: Create a function called "findHighRisk" that prints out the real names and access levels of agents with level 8 or higher. If one of these agents is also currently compromised, add `**WARNING** **COMPROMISED**` to the end of the string that includes their name and access level.
 //: - Example: `Jon Voight, level: 9 **WARNING** **COMPROMISED**`

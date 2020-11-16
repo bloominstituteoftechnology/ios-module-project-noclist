@@ -95,7 +95,7 @@ func findHighRisk() {
 
 //: ## Step 8
 //: Call the above function and check the output in the console to ensure it is functioning properly.
-
+print(findHighRisk())
 
 //: ## Step 9
 //: Create a function that finds totals for low, mid, and high level agents. Low level agents are 4 or lower, mid are 5-7, and high level agents are 8 or above. Iterate over each agent and use a `switch` statement to determine their level group. At the end of the function, print a statement like the following: "# low level agents, # mid level agents, and # high level agents"

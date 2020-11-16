@@ -53,16 +53,13 @@ func compromisedAgents() -> Int {
     for agent in agentArray {
         if agent.compromised == true {
             totalAgents += 1
-            print(agent.coverName)
         }
     }
     return totalAgents
 }
 //: ## Step 4
 //: Call the above function to find the total number of compromised agents and then print a sentence that says "# agents have been compromised!" using string interpolation.
-
-
-
+print("\(compromisedAgents()) agents have been compromised!")
 //: ## Step 5
 //: Create a function called "findCleanAgents" that both prints the cover names of all uncompromised agents, as well as returns an array of agents that are uncompromised.
 

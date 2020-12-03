@@ -29,22 +29,38 @@ This message will self destruct in 5 seconds.
 */
 //: ## Step 1
 //: Create constants for each of the above agents and store all their information in a tuple.
-
-
+let EthanHunt = (coverName: "Ethan Hunt", realName: "Tom Cruise", accessLevel: 8, compromised: false)
+let JimPhelps = (coverName: "Jim Phelps", realName: "Jon Voight", accessLevel: 9, compromised: true)
+let ClairePhelps = (coverName: "Claire Phelps", realName: "Emmanuelle Beart", accessLevel: 5, compromised: false)
+let EugeneKittridge = (coverName: "Eugene Kittridge", realName: "Henry Czerny", accessLevel: 10, compromised: true)
+let FranzKrieger = (coverName: "Franz Krieger", realName: "Jean Reno", accessLevel: 4, compromised: false)
+let LutherStickell = (coverName: "Luther Stickell", realName: "Ving Rhames", accessLevel: 4, compromised: false)
+let SarahDavies = (coverName: "Sarah Davies", realName: "Kristin Scott Thomas", accessLevel: 5, compromised: true)
+let MaxRotGrab = (coverName: "Max RotGrab", realName: "Vanessa Redgrave", accessLevel: 4, compromised: false)
+let HannahWilliams = (coverName: "Hannah Williams", realName: "Ingeborga Dapkūnaitė", accessLevel: 5, compromised: true)
+let JackHarmon = (coverName: "Jack Harmon", realName: "Emilio Estevez", accessLevel: 6, compromised: true)
+let FrankBarnes = (coverName: "Frank Barnes", realName: "Dale Dye", accessLevel: 9, compromised: false)
 
 //: ## Step 2
 //: Place the above constants inside an array. Declare this array as a constant as well.
-
-
+let arrayOfAgents = [EthanHunt,JimPhelps,ClairePhelps,EugeneKittridge,FranzKrieger,LutherStickell,SarahDavies,MaxRotGrab,HannahWilliams,JackHarmon,FrankBarnes]
 
 //: ## Step 3
 //: Create a function that calculates the total number of compromised agents. Inside the function, iterate over the array of agents to determine which ones are compromised. Return the total count.
-
-
-
+func compromisedAgents(_ agents: [(coverName: String, realName: String, accessLevel: Int, compromised: Bool)]) -> Int {
+    var totalNumber: Int = 0
+    for agent in agents {
+        if agent.compromised == true {
+            totalNumber += 1
+        }
+    }
+    return totalNumber
+}
 //: ## Step 4
 //: Call the above function to find the total number of compromised agents and then print a sentence that says "# agents have been compromised!" using string interpolation.
+let totalNumberOfCompromisedAgents = compromisedAgents(arrayOfAgents)
 
+print("\(totalNumberOfCompromisedAgents) agents have been compromised")
 
 
 //: ## Step 5

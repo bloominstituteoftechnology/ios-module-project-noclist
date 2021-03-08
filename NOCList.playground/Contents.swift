@@ -115,5 +115,13 @@ func lowMidHighLevelAgents() {
 lowMidHighLevelAgents()
 //: ## Step 11 (Optional)
 //: Create and call a function that prints the cover names and access levels of all agents, but the list should be sorted by access level, in ascending order.
+func agentCoverName() {
+   
+    let agentList = agents.sorted(by: { $0.accessLevel < $1.accessLevel })
+    
+    for agent in agentList {
+        print("\(agent.realName), access level: \(agent.accessLevel)")
+    }
+}
 
-
+agentCoverName()

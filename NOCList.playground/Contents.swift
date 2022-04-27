@@ -141,4 +141,15 @@ categorizeAgents()
 //: ## Step 11 (Optional)
 //: Create and call a function that prints the cover names and access levels of all agents, but the list should be sorted by access level, in ascending order.
 
+print("-------------------------")
 
+func sortAgentsByAccessLevel() {
+    let sortedAgents = agents.sorted { agent1, agent2 in
+        agent1.accessLevel < agent2.accessLevel
+    }
+    for agent in sortedAgents {
+        print(agent.coverName)
+    }
+}
+
+sortAgentsByAccessLevel()
